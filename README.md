@@ -683,29 +683,26 @@ function OrionLib:MakeWindow(WindowConfig)
 		Minimized = not Minimized    
 	end)
 
-    local function LoadSequence()
-        MainWindow.Visible = false
-        local LoadSequenceLogo = SetProps(MakeElement("Image", WindowConfig.IntroIcon), {
-            Parent = Orion,
-            AnchorPoint = Vector2.new(0.5, 0.5),
-            Position = UDim2.new(0.5, 0, 0.4, 0),
-            Size = UDim2.new(0, 64, 0, 64), -- Aumentado o tamanho para 64x64
-            ImageColor3 = Color3.fromRGB(138, 43, 226), -- Roxo
-            ImageTransparency = 1
-        })
-    
+	local function LoadSequence()
+		MainWindow.Visible = false
+		local LoadSequenceLogo = SetProps(MakeElement("Image", WindowConfig.IntroIcon), {
+			Parent = Orion,
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			Position = UDim2.new(0.5, 0, 0.4, 0),
+			Size = UDim2.new(0, 28, 0, 28),
+			ImageColor3 = Color3.fromRGB(255, 255, 255),
+			ImageTransparency = 1
+		})
 
-        local LoadSequenceText = SetProps(MakeElement("Label", WindowConfig.IntroText, 20), { -- Aumentado o tamanho da fonte para 20
-        Parent = Orion,
-        Size = UDim2.new(1, 0, 1, 0),
-        AnchorPoint = Vector2.new(0.5, 0.5),
-        Position = UDim2.new(0.5, 19, 0.5, 0),
-        TextXAlignment = Enum.TextXAlignment.Center,
-        Font = Enum.Font.GothamBold,
-        TextColor3 = Color3.fromRGB(138, 43, 226), -- Roxo
-        TextTransparency = 1
-    })
-    
+		local LoadSequenceText = SetProps(MakeElement("Label", WindowConfig.IntroText, 14), {
+			Parent = Orion,
+			Size = UDim2.new(1, 0, 1, 0),
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			Position = UDim2.new(0.5, 19, 0.5, 0),
+			TextXAlignment = Enum.TextXAlignment.Center,
+			Font = Enum.Font.GothamBold,
+			TextTransparency = 1
+		})
 
 		TweenService:Create(LoadSequenceLogo, TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageTransparency = 0, Position = UDim2.new(0.5, 0, 0.5, 0)}):Play()
 		wait(0.8)
