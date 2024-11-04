@@ -224,7 +224,7 @@ local function LoadCfg(Config)
 				end    
 			end)
 		else
-			warn("Orion Library Config Loader - Could not find ", a ,b)
+			warn("Solara Library Config Loader - Could not find ", a ,b)
 		end
 	end)
 end
@@ -330,7 +330,7 @@ CreateElement("ScrollFrame", function(Color, Width)
 		MidImage = "rbxassetid://7445543667",
 		BottomImage = "rbxassetid://7445543667",
 		TopImage = "rbxassetid://7445543667",
-		ScrollBarImageColor3 = Color,
+		ScrollBarImageColor3 = Color3.fromRGB(120, 50, 180) -- Um tom de roxo claro para destacar a barra de rolagem
 		BorderSizePixel = 0,
 		ScrollBarThickness = Width,
 		CanvasSize = UDim2.new(0, 0, 0, 0)
