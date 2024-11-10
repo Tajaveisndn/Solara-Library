@@ -14,12 +14,12 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-            Main = Color3.fromRGB(35, 0, 45),        -- Fundo principal, tom roxo escuro
-            Second = Color3.fromRGB(50, 0, 65),      -- Segundo plano, um pouco mais claro
-            Stroke = Color3.fromRGB(80, 0, 100),     -- Bordas com tom roxo um pouco mais vivo
-            Divider = Color3.fromRGB(80, 0, 100),    -- Divisores, mesma cor que Stroke para manter consistência
-            Text = Color3.fromRGB(235, 235, 255),    -- Texto branco-azulado, para contraste com o fundo roxo
-            TextDark = Color3.fromRGB(180, 150, 200) -- Texto secundário, roxo claro            
+Main = Color3.fromRGB(45, 35, 65),        -- Roxo escuro para o fundo principal
+Second = Color3.fromRGB(55, 45, 80),      -- Roxo um pouco mais claro para elementos secundários
+Stroke = Color3.fromRGB(90, 75, 120),     -- Roxo médio para contornos
+Divider = Color3.fromRGB(90, 75, 120),    -- Mesmo tom do Stroke para divisórias
+Text = Color3.fromRGB(240, 235, 255),     -- Branco levemente arroxeado para texto principal
+TextDark = Color3.fromRGB(160, 150, 180)  -- Roxo claro acinzentado para texto secundário
 		}
 	},
 	SelectedTheme = "Default",
@@ -35,7 +35,7 @@ local Success, Response = pcall(function()
 end)
 
 if not Success then
-	warn("\nSolara Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
+	warn("\nOrion Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
 end	
 
 local function GetIcon(IconName)
@@ -224,7 +224,7 @@ local function LoadCfg(Config)
 				end    
 			end)
 		else
-			warn("Solara Library Config Loader - Could not find ", a ,b)
+			warn("Orion Library Config Loader - Could not find ", a ,b)
 		end
 	end)
 end
@@ -330,7 +330,7 @@ CreateElement("ScrollFrame", function(Color, Width)
 		MidImage = "rbxassetid://7445543667",
 		BottomImage = "rbxassetid://7445543667",
 		TopImage = "rbxassetid://7445543667",
-		ScrollBarImageColor3 = Color3.fromRGB(120, 50, 180) -- Um tom de roxo claro para destacar a barra de rolagem
+		ScrollBarImageColor3 = Color,
 		BorderSizePixel = 0,
 		ScrollBarThickness = Width,
 		CanvasSize = UDim2.new(0, 0, 0, 0)
@@ -477,7 +477,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
-	WindowConfig.IntroText = WindowConfig.IntroText or "Solara Library"
+	WindowConfig.IntroText = WindowConfig.IntroText or "Orion Library"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
@@ -666,7 +666,7 @@ function OrionLib:MakeWindow(WindowConfig)
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
 			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 615, 0, 344)}):Play()
-			MinimizeBtn.Ico.Image = "rbxassetid://85799918762325"
+			MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
 			wait(.02)
 			MainWindow.ClipsDescendants = false
 			WindowStuff.Visible = true
@@ -674,7 +674,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		else
 			MainWindow.ClipsDescendants = true
 			WindowTopBarLine.Visible = false
-			MinimizeBtn.Ico.Image = "rbxassetid://85799918762325"
+			MinimizeBtn.Ico.Image = "rbxassetid://7072720870"
 
 			TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, WindowName.TextBounds.X + 140, 0, 50)}):Play()
 			wait(0.1)
